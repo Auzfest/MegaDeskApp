@@ -21,7 +21,8 @@ namespace MegaDesk1
         public double Width { get; set; }
         public double Depth { get; set; }
         public int Drawers { get; set; }
-        public string Material { get; set; }
+        public DesktopMaterial Material { get; set; }
+
 
         public const double MIN_WIDTH = 24.0;
         public const double MAX_WIDTH = 96.0;
@@ -33,7 +34,9 @@ namespace MegaDesk1
             Width = width;
             Depth = depth;
             Drawers = drawers;
-            Material = material;
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
+                                      .Cast<DesktopMaterial>()
+                                      .ToList();
         }
 
         public double GetWidth()
@@ -53,7 +56,7 @@ namespace MegaDesk1
 
         public string GetMaterial()
         {
-            return Material;
+            return Material.ToString();
         }
     }
 }

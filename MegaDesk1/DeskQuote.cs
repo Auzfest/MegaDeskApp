@@ -5,6 +5,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using Newtonsoft.Json;
 
 namespace MegaDesk1
 {
@@ -115,13 +117,29 @@ namespace MegaDesk1
         {
             try
             {
-                string details = GetQuoteDetails();
-                File.WriteAllText(filePath, details);
-                MessageBox.Show("Quote saved to file successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                List<DeskQuote> quotes;
+
+                if (File.Exists(filePath))
+                {
+                    string existingJson = File.ReadAllText(filePath);
+                    quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(existingJson) ?? new List<DeskQuote>();
+                }
+                else
+                {
+                    quotes = new List<DeskQuote>();
+                }
+
+                quotes.Add(quoteDetails);
+
+                string updatedJson = JsonConvert.SerializeObject(quotes, Newtonsoft.Json.Formatting.Indented);
+
+                File.WriteAllText(filePath, updatedJson);
+
+                MessageBox.Show("Quote saved to JSON file successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error saving quote to file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Error saving quote to JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

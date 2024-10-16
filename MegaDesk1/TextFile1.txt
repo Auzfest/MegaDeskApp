@@ -1,7 +1,0 @@
-Customer: Bob
-Desk Material: Laminate
-Desk Width: 24 inches
-Desk Depth: 12 inches
-Number of Drawers: 3
-Total Price: $480
-Shipping Date: 10/12/2024

@@ -12,16 +12,19 @@ namespace MegaDesk1
 {
     public partial class DisplayQuote : Form
     {
+        private DeskQuote Quote;
 
         public DisplayQuote(DeskQuote deskQuote)
         {
             InitializeComponent();
             textBox1.Text = deskQuote.GetQuoteDetails();
-
+            Quote = deskQuote;
+        
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Quote.SaveQuoteToFile("C:\\Users\\barne\\source\\repos\\MegaDesk1\\MegaDesk1\\quotes.json", Quote);
 
         }
     }

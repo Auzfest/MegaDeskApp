@@ -138,7 +138,6 @@ namespace MegaDesk1
                     newDesk = new Desk(width, depth, drawers, material);
                     newQuote = new DeskQuote(customer, daysToShip);
                     var completeQuote = newQuote.CreateQuote(newDesk);
-                    newQuote.SaveQuoteToFile("C:\\Users\\barne\\source\\repos\\MegaDesk1\\MegaDesk1\\TextFile1.txt", completeQuote);
                     DisplayQuote displayQuoteForm = new DisplayQuote(completeQuote);
                     displayQuoteForm.Tag = this;
                     displayQuoteForm.Show(this);
@@ -183,6 +182,14 @@ namespace MegaDesk1
                 MessageBox.Show($"An unexpected error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 e.Cancel = true;
             }
+        }
+
+        private void AddQuote_Load(object sender, EventArgs e)
+        {
+            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
+                                      .Cast<DesktopMaterial>()
+                                      .ToList();
+            comboBox1.DataSource = materials;
         }
     }
 }
