@@ -18,10 +18,39 @@ namespace MegaDesk1
         public DateTime ShippingDate { get; set; }
         public int DaysToShip { get; set; }
 
+        // Array to store rush order prices
+        private int[,] rushOrderPrices = new int[3, 3];
+
         public DeskQuote(string customer, int daysToShip)
         {
             Customer = customer;
             DaysToShip = daysToShip;
+            GetRushOrderPrices();  // Call method to load rush prices from file
+        }
+
+        // Method to read rush order prices from file and populate the 2D array
+        public void GetRushOrderPrices()
+        {
+            try
+            {
+                // Read all lines from the file
+                string[] lines = File.ReadAllLines("rushOrderPrices.txt");
+                
+                // Populate the 2D array (3x3 matrix)
+                int index = 0;
+                for (int i = 0; i < 3; i++)
+                {
+                    for (int j = 0; j < 3; j++)
+                    {
+                        rushOrderPrices[i, j] = int.Parse(lines[index]);
+                        index++;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error reading rush order prices: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         public DeskQuote CreateQuote(Desk desk)
@@ -38,110 +67,45 @@ namespace MegaDesk1
             double deskArea = desk.GetWidth() * desk.GetDepth();
 
             double areaCost = (deskArea > 1000) ? (deskArea - 1000) : 0;
-
             double drawerCost = desk.GetDrawers() * 50;
-
-            double materialCost = 0.0;
-
-            if (desk.GetMaterial() == "Oak")
-            {
-                materialCost = 200.00;
-            }
-            else if (desk.GetMaterial() == "Laminate")
-            {
-                materialCost = 100.00;
-            }
-            else if (desk.GetMaterial() == "Pine")
-            {
-                materialCost = 50.00;
-            }
-            else if (desk.GetMaterial() == "Rosewood")
-            {
-                materialCost = 300.00;
-            }
-            else if (desk.GetMaterial() == "Veneer")
-            {
-                materialCost = 125.00;
-            }
-
+            double materialCost = GetMaterialCost(desk.GetMaterial());
             double rushCost = GetRushCost(deskArea);
 
             return basePrice + areaCost + drawerCost + materialCost + rushCost;
         }
 
+        // Method to calculate rush order cost based on area and days to ship
         public double GetRushCost(double deskArea)
         {
-            if (DaysToShip == 3)
-            {
-                if (deskArea < 1000) return 60.00;
-                if (deskArea >= 1000 && deskArea <= 2000) return 70.00;
-                if (deskArea > 2000) return 80.00;
-            }
-            else if (DaysToShip == 5)
-            {
-                if (deskArea < 1000) return 40.00;
-                if (deskArea >= 1000 && deskArea <= 2000) return 50.00;
-                if (deskArea > 2000) return 60.00;
-            }
-            else if (DaysToShip == 7)
-            {
-                if (deskArea < 1000) return 30.00;
-                if (deskArea >= 1000 && deskArea <= 2000) return 35.00;
-                if (deskArea > 2000) return 40.00;
-            }
-            return 0.00;
+            if (DaysToShip == 14) return 0.0;  // No rush
+
+            int sizeIndex = 0;
+            if (deskArea >= 1000 && deskArea <= 2000) sizeIndex = 1;
+            else if (deskArea > 2000) sizeIndex = 2;
+
+            int daysIndex = (DaysToShip == 3) ? 0 : (DaysToShip == 5) ? 1 : 2;
+
+            return rushOrderPrices[daysIndex, sizeIndex];
         }
 
-        public string GetCustomer()
+        // Utility method to get material cost
+        private double GetMaterialCost(string material)
         {
-            return Customer;
-        }
-
-        public DateTime GetShippingDate()
-        {
-            return ShippingDate;
-        }
-
-        public string GetQuoteDetails()
-        {
-            return $"Customer: {Customer}\n" +
-                   $"Desk Material: {Desk.Material}\n" +
-                   $"Desk Width: {Desk.Width} inches\n" +
-                   $"Desk Depth: {Desk.Depth} inches\n" +
-                   $"Number of Drawers: {Desk.Drawers}\n" +
-                   $"Total Price: ${TotalPrice}\n" +
-                   $"Shipping Date: {ShippingDate.ToShortDateString()}\n";
-        }
-
-        public void SaveQuoteToFile(string filePath, DeskQuote quoteDetails)
-        {
-            try
+            switch (material)
             {
-                List<DeskQuote> quotes;
-
-                if (File.Exists(filePath))
-                {
-                    string existingJson = File.ReadAllText(filePath);
-                    quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(existingJson) ?? new List<DeskQuote>();
-                }
-                else
-                {
-                    quotes = new List<DeskQuote>();
-                }
-
-                quotes.Add(quoteDetails);
-
-                string updatedJson = JsonConvert.SerializeObject(quotes, Newtonsoft.Json.Formatting.Indented);
-
-                File.WriteAllText(filePath, updatedJson);
-
-                MessageBox.Show("Quote saved to JSON file successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving quote to JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                case "Oak":
+                    return 200.00;
+                case "Laminate":
+                    return 100.00;
+                case "Pine":
+                    return 50.00;
+                case "Rosewood":
+                    return 300.00;
+                case "Veneer":
+                    return 125.00;
+                default:
+                    return 0.00;
             }
         }
-
     }
 }
