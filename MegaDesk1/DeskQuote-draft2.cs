@@ -5,7 +5,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using Newtonsoft.Json;
 
 namespace MegaDesk1
@@ -105,6 +104,52 @@ namespace MegaDesk1
                     return 125.00;
                 default:
                     return 0.00;
+            }
+        }
+
+        // Get the details of the quote in a formatted string
+        public string GetQuoteDetails()
+        {
+            return $"Customer: {Customer}\n" +
+                   $"Desk Material: {Desk.Material}\n" +
+                   $"Desk Width: {Desk.Width} inches\n" +
+                   $"Desk Depth: {Desk.Depth} inches\n" +
+                   $"Number of Drawers: {Desk.Drawers}\n" +
+                   $"Total Price: ${TotalPrice}\n" +
+                   $"Shipping Date: {ShippingDate.ToShortDateString()}\n";
+        }
+
+        // Method to save the quote to a JSON file
+        public void SaveQuoteToFile(string filePath)
+        {
+            try
+            {
+                List<DeskQuote> quotes;
+
+                // Check if file exists
+                if (File.Exists(filePath))
+                {
+                    // Read existing quotes from file
+                    string existingJson = File.ReadAllText(filePath);
+                    quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(existingJson) ?? new List<DeskQuote>();
+                }
+                else
+                {
+                    quotes = new List<DeskQuote>();
+                }
+
+                // Add the current quote to the list
+                quotes.Add(this);
+
+                // Save the updated list back to the file
+                string updatedJson = JsonConvert.SerializeObject(quotes, Formatting.Indented);
+                File.WriteAllText(filePath, updatedJson);
+
+                MessageBox.Show("Quote saved to JSON file successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving quote to JSON file: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
