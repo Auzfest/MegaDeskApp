@@ -18,10 +18,14 @@ namespace MegaDesk1
         public DateTime ShippingDate { get; set; }
         public int DaysToShip { get; set; }
 
+        private int[,] rushPricesFromFile;
+
         public DeskQuote(string customer, int daysToShip)
         {
             Customer = customer;
             DaysToShip = daysToShip;
+
+            rushPricesFromFile = this.ReadRushPricesFromFile();
         }
 
         public DeskQuote CreateQuote(Desk desk)
@@ -65,29 +69,66 @@ namespace MegaDesk1
             }
 
             double rushCost = GetRushCost(deskArea);
+            MessageBox.Show(rushCost.ToString());
 
             return basePrice + areaCost + drawerCost + materialCost + rushCost;
         }
 
+
+        public int[,] ReadRushPricesFromFile()
+        {
+            int[,] priceMatrix = new int[3, 3];
+
+            try
+            {
+                const string filename = @"..\..\rushOrderPrices.txt";
+                string[] lines = File.ReadAllLines(filename);
+                priceMatrix[0, 0] = int.Parse(lines[0]);
+                priceMatrix[0, 1] = int.Parse(lines[1]);
+                priceMatrix[0, 2] = int.Parse(lines[2]);
+                priceMatrix[1, 0] = int.Parse(lines[3]);
+                priceMatrix[1, 1] = int.Parse(lines[4]);
+                priceMatrix[1, 2] = int.Parse(lines[5]);
+                priceMatrix[2, 0] = int.Parse(lines[6]);
+                priceMatrix[2, 1] = int.Parse(lines[7]);
+                priceMatrix[2, 2] = int.Parse(lines[8]);
+            }
+            catch
+            {
+                MessageBox.Show("I cannot find the rushOrderPrices.txt file. Sorry.");
+
+                // I will need to fill out with negative values if no file is found!
+                // you will need to check if the price orders are negative. If they
+                // are negative, the quote will be wrong until the user provides a file
+                for (int i = 0; i < 3; i++) {
+                    for (int j = 0; j < 3; j++) {
+                        priceMatrix[i, j] = -1;
+                    }
+                }
+            }
+            return priceMatrix;
+        }
+
         public double GetRushCost(double deskArea)
         {
+
             if (DaysToShip == 3)
             {
-                if (deskArea < 1000) return 60.00;
-                if (deskArea >= 1000 && deskArea <= 2000) return 70.00;
-                if (deskArea > 2000) return 80.00;
+                if (deskArea < 1000) return this.rushPricesFromFile[0, 0];
+                if (deskArea >= 1000 && deskArea <= 2000) return this.rushPricesFromFile[0, 1];
+                if (deskArea > 2000) return this.rushPricesFromFile[0, 2];
             }
             else if (DaysToShip == 5)
             {
-                if (deskArea < 1000) return 40.00;
-                if (deskArea >= 1000 && deskArea <= 2000) return 50.00;
-                if (deskArea > 2000) return 60.00;
+                if (deskArea < 1000) return this.rushPricesFromFile[1, 0];
+                if (deskArea >= 1000 && deskArea <= 2000) return this.rushPricesFromFile[1, 1];
+                if (deskArea > 2000) return this.rushPricesFromFile[1, 2];
             }
             else if (DaysToShip == 7)
             {
-                if (deskArea < 1000) return 30.00;
-                if (deskArea >= 1000 && deskArea <= 2000) return 35.00;
-                if (deskArea > 2000) return 40.00;
+                if (deskArea < 1000) return this.rushPricesFromFile[2, 0];
+                if (deskArea >= 1000 && deskArea <= 2000) return this.rushPricesFromFile[2, 1];
+                if (deskArea > 2000) return this.rushPricesFromFile[2, 2];
             }
             return 0.00;
         }
