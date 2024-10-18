@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 
 namespace MegaDesk1
 {
@@ -171,7 +172,11 @@ namespace MegaDesk1
 
                 quotes.Add(quoteDetails);
 
-                string updatedJson = JsonConvert.SerializeObject(quotes, Newtonsoft.Json.Formatting.Indented);
+                string updatedJson = JsonConvert.SerializeObject(quotes, Newtonsoft.Json.Formatting.Indented,
+                new JsonSerializerSettings
+                {
+                    Converters = new List<JsonConverter> { new StringEnumConverter() } // Convert enums to strings
+                });
 
                 File.WriteAllText(filePath, updatedJson);
 

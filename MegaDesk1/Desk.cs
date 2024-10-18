@@ -34,9 +34,17 @@ namespace MegaDesk1
             Width = width;
             Depth = depth;
             Drawers = drawers;
-            List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
-                                      .Cast<DesktopMaterial>()
-                                      .ToList();
+            if (Enum.TryParse(material, true, out DesktopMaterial parsedMaterial))
+            {
+                Material = parsedMaterial;
+            }
+            else
+            {
+                throw new ArgumentException("Invalid material type");
+            }
+            //List<DesktopMaterial> materials = Enum.GetValues(typeof(DesktopMaterial))
+            //                          .Cast<DesktopMaterial>()
+            //                          .ToList();
         }
 
         public double GetWidth()
