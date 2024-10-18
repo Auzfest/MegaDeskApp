@@ -13,14 +13,14 @@ namespace MegaDesk1
 {
     public partial class DisplayQuote : Form
     {
-        //private DeskQuote Quote;
+        private DeskQuote Quote;
 
 
         public DisplayQuote(DeskQuote deskQuote)
         {
             InitializeComponent();
             //textBox1.Text = deskQuote.GetQuoteDetails();
-            //Quote = deskQuote;
+            Quote = deskQuote;
 
             this.CustomerDisplay.Text = deskQuote.Customer;
             this.DateDisplay.Text = deskQuote.ShippingDate.ToString("MMMM dd, yyyy");
