@@ -51,7 +51,7 @@
             this.Close.Location = new System.Drawing.Point(172, 352);
             this.Close.Name = "Close";
             this.Close.Size = new System.Drawing.Size(75, 23);
-            this.Close.TabIndex = 0;
+            this.Close.TabIndex = 7;
             this.Close.Text = "Close";
             this.Close.UseVisualStyleBackColor = true;
             this.Close.Click += new System.EventHandler(this.Close_Click);
@@ -88,7 +88,7 @@
             this.button1.Location = new System.Drawing.Point(82, 352);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 4;
+            this.button1.TabIndex = 6;
             this.button1.Tag = "AddQuote";
             this.button1.Text = "Add Quote";
             this.button1.UseVisualStyleBackColor = true;
@@ -106,14 +106,14 @@
             this.listBox1.Location = new System.Drawing.Point(120, 187);
             this.listBox1.Name = "listBox1";
             this.listBox1.Size = new System.Drawing.Size(127, 69);
-            this.listBox1.TabIndex = 5;
+            this.listBox1.TabIndex = 4;
             // 
             // textBox4
             // 
             this.textBox4.Location = new System.Drawing.Point(120, 17);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(127, 20);
-            this.textBox4.TabIndex = 6;
+            this.textBox4.TabIndex = 0;
             this.textBox4.Tag = "Customer";
             this.textBox4.Validating += new System.ComponentModel.CancelEventHandler(this.textBox4_Validating);
             // 
@@ -173,7 +173,7 @@
             this.listBox2.Location = new System.Drawing.Point(120, 268);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(127, 56);
-            this.listBox2.TabIndex = 13;
+            this.listBox2.TabIndex = 5;
             // 
             // label6
             // 

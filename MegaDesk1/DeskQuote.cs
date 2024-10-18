@@ -69,7 +69,6 @@ namespace MegaDesk1
             }
 
             double rushCost = GetRushCost(deskArea);
-            MessageBox.Show(rushCost.ToString());
 
             return basePrice + areaCost + drawerCost + materialCost + rushCost;
         }

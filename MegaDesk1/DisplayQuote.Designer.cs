@@ -28,23 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CustomerDisplay = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.WidthDisplay = new System.Windows.Forms.Label();
+            this.DepthDisplay = new System.Windows.Forms.Label();
+            this.MaterialDisplay = new System.Windows.Forms.Label();
+            this.labelMaterial = new System.Windows.Forms.Label();
+            this.RushDisplay = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.TotalPriceDisplay = new System.Windows.Forms.Label();
+            this.DateDisplay = new System.Windows.Forms.Label();
             this.SuspendLayout();
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(313, 89);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(162, 163);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Tag = "Quote";
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(334, 281);
+            this.button1.Location = new System.Drawing.Point(26, 240);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 23);
             this.button1.TabIndex = 1;
@@ -53,13 +57,164 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(12, 40);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Customer name";
+            // 
+            // CustomerDisplay
+            // 
+            this.CustomerDisplay.AutoSize = true;
+            this.CustomerDisplay.Location = new System.Drawing.Point(127, 40);
+            this.CustomerDisplay.Name = "CustomerDisplay";
+            this.CustomerDisplay.Size = new System.Drawing.Size(35, 13);
+            this.CustomerDisplay.TabIndex = 3;
+            this.CustomerDisplay.Text = "label2";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(13, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Width";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 92);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.TabIndex = 5;
+            this.label3.Text = "Depth";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(13, 120);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(96, 13);
+            this.label4.TabIndex = 6;
+            this.label4.Text = "Number of drawers";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 144);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(44, 13);
+            this.label5.TabIndex = 7;
+            this.label5.Text = "Material";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 174);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(59, 13);
+            this.label6.TabIndex = 8;
+            this.label6.Text = "Rush order";
+            // 
+            // WidthDisplay
+            // 
+            this.WidthDisplay.AutoSize = true;
+            this.WidthDisplay.Location = new System.Drawing.Point(127, 65);
+            this.WidthDisplay.Name = "WidthDisplay";
+            this.WidthDisplay.Size = new System.Drawing.Size(35, 13);
+            this.WidthDisplay.TabIndex = 9;
+            this.WidthDisplay.Text = "label2";
+            // 
+            // DepthDisplay
+            // 
+            this.DepthDisplay.AutoSize = true;
+            this.DepthDisplay.Location = new System.Drawing.Point(127, 92);
+            this.DepthDisplay.Name = "DepthDisplay";
+            this.DepthDisplay.Size = new System.Drawing.Size(35, 13);
+            this.DepthDisplay.TabIndex = 10;
+            this.DepthDisplay.Text = "label2";
+            // 
+            // MaterialDisplay
+            // 
+            this.MaterialDisplay.AutoSize = true;
+            this.MaterialDisplay.Location = new System.Drawing.Point(127, 120);
+            this.MaterialDisplay.Name = "MaterialDisplay";
+            this.MaterialDisplay.Size = new System.Drawing.Size(35, 13);
+            this.MaterialDisplay.TabIndex = 11;
+            this.MaterialDisplay.Text = "label2";
+            // 
+            // labelMaterial
+            // 
+            this.labelMaterial.AutoSize = true;
+            this.labelMaterial.Location = new System.Drawing.Point(127, 144);
+            this.labelMaterial.Name = "labelMaterial";
+            this.labelMaterial.Size = new System.Drawing.Size(35, 13);
+            this.labelMaterial.TabIndex = 12;
+            this.labelMaterial.Text = "label2";
+            // 
+            // RushDisplay
+            // 
+            this.RushDisplay.AutoSize = true;
+            this.RushDisplay.Location = new System.Drawing.Point(127, 174);
+            this.RushDisplay.Name = "RushDisplay";
+            this.RushDisplay.Size = new System.Drawing.Size(35, 13);
+            this.RushDisplay.TabIndex = 13;
+            this.RushDisplay.Text = "label2";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(12, 202);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 20);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Total Price";
+            // 
+            // TotalPriceDisplay
+            // 
+            this.TotalPriceDisplay.AutoSize = true;
+            this.TotalPriceDisplay.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.TotalPriceDisplay.Location = new System.Drawing.Point(127, 202);
+            this.TotalPriceDisplay.Name = "TotalPriceDisplay";
+            this.TotalPriceDisplay.Size = new System.Drawing.Size(57, 20);
+            this.TotalPriceDisplay.TabIndex = 15;
+            this.TotalPriceDisplay.Text = "label2";
+            // 
+            // DateDisplay
+            // 
+            this.DateDisplay.AutoSize = true;
+            this.DateDisplay.Location = new System.Drawing.Point(13, 17);
+            this.DateDisplay.Name = "DateDisplay";
+            this.DateDisplay.Size = new System.Drawing.Size(28, 13);
+            this.DateDisplay.TabIndex = 16;
+            this.DateDisplay.Text = "date";
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(234, 274);
+            this.Controls.Add(this.DateDisplay);
+            this.Controls.Add(this.TotalPriceDisplay);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.RushDisplay);
+            this.Controls.Add(this.labelMaterial);
+            this.Controls.Add(this.MaterialDisplay);
+            this.Controls.Add(this.DepthDisplay);
+            this.Controls.Add(this.WidthDisplay);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.CustomerDisplay);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox1);
             this.Name = "DisplayQuote";
             this.Text = "New Quote";
             this.ResumeLayout(false);
@@ -68,9 +223,22 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CustomerDisplay;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label WidthDisplay;
+        private System.Windows.Forms.Label DepthDisplay;
+        private System.Windows.Forms.Label MaterialDisplay;
+        private System.Windows.Forms.Label labelMaterial;
+        private System.Windows.Forms.Label RushDisplay;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label TotalPriceDisplay;
+        private System.Windows.Forms.Label DateDisplay;
     }
 }
 
