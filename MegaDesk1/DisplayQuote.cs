@@ -40,5 +40,12 @@ namespace MegaDesk1
                 Quote.SaveQuoteToFile(filePath, Quote);
             }
         }
+
+        private void backToMainMenuButton_Click(object sender, EventArgs e)
+        {
+            MainMenu viewMainMenu = (MainMenu)this.Tag;
+            viewMainMenu.Show();
+            this.Close();
+        }
     }
 }

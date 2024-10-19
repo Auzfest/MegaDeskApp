@@ -44,13 +44,14 @@
             this.label7 = new System.Windows.Forms.Label();
             this.TotalPriceDisplay = new System.Windows.Forms.Label();
             this.DateDisplay = new System.Windows.Forms.Label();
+            this.backToMainMenuButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(26, 240);
+            this.button1.Location = new System.Drawing.Point(16, 235);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(121, 23);
+            this.button1.Size = new System.Drawing.Size(168, 23);
             this.button1.TabIndex = 1;
             this.button1.Tag = "Accept";
             this.button1.Text = "Accept Quote";
@@ -194,11 +195,23 @@
             this.DateDisplay.TabIndex = 16;
             this.DateDisplay.Text = "date";
             // 
+            // backToMainMenuButton
+            // 
+            this.backToMainMenuButton.Location = new System.Drawing.Point(16, 264);
+            this.backToMainMenuButton.Name = "backToMainMenuButton";
+            this.backToMainMenuButton.Size = new System.Drawing.Size(168, 23);
+            this.backToMainMenuButton.TabIndex = 17;
+            this.backToMainMenuButton.Tag = "Accept";
+            this.backToMainMenuButton.Text = "Back to Main Menu";
+            this.backToMainMenuButton.UseVisualStyleBackColor = true;
+            this.backToMainMenuButton.Click += new System.EventHandler(this.backToMainMenuButton_Click);
+            // 
             // DisplayQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(234, 274);
+            this.ClientSize = new System.Drawing.Size(206, 292);
+            this.Controls.Add(this.backToMainMenuButton);
             this.Controls.Add(this.DateDisplay);
             this.Controls.Add(this.TotalPriceDisplay);
             this.Controls.Add(this.label7);
@@ -239,6 +252,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label TotalPriceDisplay;
         private System.Windows.Forms.Label DateDisplay;
+        private System.Windows.Forms.Button backToMainMenuButton;
     }
 }
 
