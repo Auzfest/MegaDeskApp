@@ -30,5 +30,15 @@ namespace MegaDesk1
             viewAllQuotesForm.Show(this);
             Hide();
         }
+
+        private void ViewQuotes_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+        }
+
+        private void AddQuote_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            this.Show();
+        }
     }
 }
