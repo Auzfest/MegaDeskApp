@@ -1,0 +1,122 @@
+[
+  {
+    "Desk": {
+      "Width": 24.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Oak"
+    },
+    "Customer": "bob",
+    "TotalPrice": 600.0,
+    "ShippingDate": "2024-11-01T16:24:57.483406-06:00",
+    "DaysToShip": 14
+  },
+  {
+    "Desk": {
+      "Width": 55.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Rosewood"
+    },
+    "Customer": "Wade",
+    "TotalPrice": 1070.0,
+    "ShippingDate": "2024-10-23T16:40:47.3178273-06:00",
+    "DaysToShip": 5
+  },
+  {
+    "Desk": {
+      "Width": 24.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Laminate"
+    },
+    "Customer": "Wade",
+    "TotalPrice": 530.0,
+    "ShippingDate": "2024-10-25T16:43:33.4329447-06:00",
+    "DaysToShip": 7
+  },
+  {
+    "Desk": {
+      "Width": 24.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Laminate"
+    },
+    "Customer": "Wade",
+    "TotalPrice": 530.0,
+    "ShippingDate": "2024-10-25T16:43:33.4329447-06:00",
+    "DaysToShip": 7
+  },
+  {
+    "Desk": {
+      "Width": 55.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Veneer"
+    },
+    "Customer": "Wade",
+    "TotalPrice": 895.0,
+    "ShippingDate": "2024-10-23T16:49:22.6359308-06:00",
+    "DaysToShip": 5
+  },
+  {
+    "Desk": {
+      "Width": 55.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Laminate"
+    },
+    "Customer": "Wade",
+    "TotalPrice": 890.0,
+    "ShippingDate": "2024-10-21T16:50:40.1498873-06:00",
+    "DaysToShip": 3
+  },
+  {
+    "Desk": {
+      "Width": 35.0,
+      "Depth": 34.0,
+      "Drawers": 2,
+      "Material": "Pine"
+    },
+    "Customer": "gary",
+    "TotalPrice": 590.0,
+    "ShippingDate": "2024-10-23T16:55:21.8050218-06:00",
+    "DaysToShip": 5
+  },
+  {
+    "Desk": {
+      "Width": 25.0,
+      "Depth": 25.0,
+      "Drawers": 4,
+      "Material": "Oak"
+    },
+    "Customer": "Wade",
+    "TotalPrice": 630.0,
+    "ShippingDate": "2024-10-25T17:15:27.4621669-06:00",
+    "DaysToShip": 7
+  },
+  {
+    "Desk": {
+      "Width": 55.0,
+      "Depth": 24.0,
+      "Drawers": 4,
+      "Material": "Pine"
+    },
+    "Customer": "Harry",
+    "TotalPrice": 820.0,
+    "ShippingDate": "2024-10-23T17:23:30.286035-06:00",
+    "DaysToShip": 5
+  },
+  {
+    "Desk": {
+      "Width": 55.0,
+      "Depth": 44.0,
+      "Drawers": 4,
+      "Material": "Pine"
+    },
+    "Customer": "Bob",
+    "TotalPrice": 1910.0,
+    "ShippingDate": "2024-10-25T18:51:16.9355499-06:00",
+    "DaysToShip": 7
+  }
+]
