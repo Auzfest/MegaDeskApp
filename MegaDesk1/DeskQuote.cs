@@ -34,7 +34,7 @@ namespace MegaDesk1
         [DisplayName("Desk material")]
         public string SurfaceMaterial { get; set; }
 
-        [DisplayName("Date to ship")]
+        [DisplayName("Rush days")]
         public int DaysToShip { get; set; }
 
         [DisplayName("Total Price")]
