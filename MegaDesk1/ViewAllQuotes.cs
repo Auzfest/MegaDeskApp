@@ -16,5 +16,24 @@ namespace MegaDesk1
         {
             InitializeComponent();
         }
+
+        private List<DeskQuote> quotes;
+        public ViewAllQuotes(List<DeskQuote> quotes)
+        {
+            InitializeComponent();
+            this.quotes = quotes;
+
+        }
+        private List<DeskQuote> GetDeskQuotes()
+        {
+            return this.quotes;
+        }
+        private void ViewAllQuotes_Load(object sender, EventArgs e)
+        {
+            var bindingList = new BindingList<DeskQuote>(quotes);
+            var source = new BindingSource(bindingList, null);
+            dataGridView1.DataSource = source;
+
+        }
     }
 }
