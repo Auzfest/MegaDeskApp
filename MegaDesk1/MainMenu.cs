@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MegaDesk1
@@ -28,6 +21,14 @@ namespace MegaDesk1
         private void Exit_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ViewQuotes_Click(object sender, EventArgs e)
+        {
+            ViewAllQuotes viewAllQuotesForm = new ViewAllQuotes();
+            viewAllQuotesForm.Tag = this;
+            viewAllQuotesForm.Show(this);
+            Hide();
         }
     }
 }

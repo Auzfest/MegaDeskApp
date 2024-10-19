@@ -97,9 +97,10 @@ namespace MegaDesk1
         // material selection from listbox
         private string GetSelectedMaterial()
         {
-            if (listBox1.SelectedItem != null)
+            if (comboBox1.SelectedItem != null)
             {
-                return listBox1.SelectedItem.ToString();
+                string material = comboBox1.SelectedItem.ToString();
+                return comboBox1.SelectedItem.ToString();
             }
             else
             {
@@ -111,7 +112,7 @@ namespace MegaDesk1
         // Rush order selection from listbox
         private int GetSelectedRushOrder()
         {
-            if (listBox1.SelectedItem != null && int.TryParse(listBox2.SelectedItem.ToString(), out int result))
+            if (listBox2.SelectedItem != null && int.TryParse(listBox2.SelectedItem.ToString(), out int result))
             {
                 return result;
             }
@@ -191,5 +192,6 @@ namespace MegaDesk1
                                       .ToList();
             comboBox1.DataSource = materials;
         }
+
     }
 }
