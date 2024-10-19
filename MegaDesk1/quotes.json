@@ -3,12 +3,12 @@
     "Desk": {
       "Width": 33.0,
       "Depth": 44.0,
-      "Drawers": 3,
+      "Drawers": 2,
       "Material": "Oak"
     },
-    "Customer": "ca",
-    "TotalPrice": 1037.0,
-    "ShippingDate": "2024-10-26T13:08:32.5076799-03:00",
+    "Customer": "x",
+    "TotalPrice": 987.0,
+    "ShippingDate": "2024-10-26T13:13:36.6766506-03:00",
     "DaysToShip": 7
   }
 ]

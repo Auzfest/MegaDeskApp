@@ -29,5 +29,13 @@ namespace MegaDesk1
         {
             Close();
         }
+
+        private void viewAllQuotesButton_Click(object sender, EventArgs e)
+        {
+            ViewAllQuotes viewAllQuotes = new ViewAllQuotes();
+            viewAllQuotes.Tag = this;
+            viewAllQuotes.Show();
+            this.Hide();
+        }
     }
 }
