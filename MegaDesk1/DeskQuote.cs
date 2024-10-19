@@ -154,6 +154,24 @@ namespace MegaDesk1
                    $"Shipping Date: {ShippingDate.ToShortDateString()}\n";
         }
 
+        // "static" so that I can use it without instantianting
+        static public List<DeskQuote> GetListDeskQuoteFromJson(string filePath) 
+        {
+            List<DeskQuote> listDeskQuote = new List<DeskQuote>();
+
+            if (File.Exists(filePath))
+            {
+                string existingJson = File.ReadAllText(filePath);
+                listDeskQuote = JsonConvert.DeserializeObject<List<DeskQuote>>(existingJson) ?? new List<DeskQuote>();
+            }
+            else
+            {
+                listDeskQuote = new List<DeskQuote>();
+            }
+
+            return listDeskQuote;
+        }
+
         public void SaveQuoteToFile(string filePath, DeskQuote quoteDetails)
         {
             try

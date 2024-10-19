@@ -10,5 +10,41 @@
     "TotalPrice": 987.0,
     "ShippingDate": "2024-10-26T13:13:36.6766506-03:00",
     "DaysToShip": 7
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 3,
+      "Material": "Oak"
+    },
+    "Customer": "ca",
+    "TotalPrice": 1037.0,
+    "ShippingDate": "2024-10-26T13:40:16.9287306-03:00",
+    "DaysToShip": 7
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 3,
+      "Material": "Oak"
+    },
+    "Customer": "carlos alberto",
+    "TotalPrice": 1052.0,
+    "ShippingDate": "2024-10-24T13:44:58.6367739-03:00",
+    "DaysToShip": 5
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 3,
+      "Material": "Oak"
+    },
+    "Customer": "michael",
+    "TotalPrice": 1002.0,
+    "ShippingDate": "2024-11-02T13:47:19.9305462-03:00",
+    "DaysToShip": 14
   }
 ]

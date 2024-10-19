@@ -23,5 +23,11 @@ namespace MegaDesk1
             mainMenu.Show();
             this.Close();
         }
+
+        private void ViewAllQuotes_Load(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)this.Tag;
+            dataGridView1.DataSource = mainMenu.listDeskQuote;
+        }
     }
 }
