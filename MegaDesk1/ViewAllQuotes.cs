@@ -16,5 +16,23 @@ namespace MegaDesk1
         {
             InitializeComponent();
         }
+
+        private void backToMainMenuButton_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)this.Tag;
+            mainMenu.Show();
+            this.Close();
+        }
+
+        private void ViewAllQuotes_Load(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)this.Tag;
+            dataGridView1.DataSource = mainMenu.listDeskQuote;
+
+            // Don't show a nested dictionary! it won't work
+            this.dataGridView1.Columns["Desk"].Visible = false; 
+        
+        }
+
     }
 }

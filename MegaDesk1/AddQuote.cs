@@ -139,10 +139,14 @@ namespace MegaDesk1
                     newDesk = new Desk(width, depth, drawers, material);
                     newQuote = new DeskQuote(customer, daysToShip);
                     var completeQuote = newQuote.CreateQuote(newDesk);
+
+
+
                     DisplayQuote displayQuoteForm = new DisplayQuote(completeQuote);
-                    displayQuoteForm.Tag = this;
-                    displayQuoteForm.Show(this);
-                    Hide();
+                    displayQuoteForm.Tag = this.Tag; //remember AddQuote's tag was setted to MainMenu
+                    displayQuoteForm.Show(); // this
+                    //Hide();
+                    this.Close();
                 }
             }
             else
