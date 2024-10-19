@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,10 +15,31 @@ namespace MegaDesk1
     public class DeskQuote
     {
         public Desk Desk { get; set; }
+
+        [DisplayName("Customer Name")] // this is for showing in the ViewallQuotes window's dataGridView
         public string Customer { get; set; }
-        public double TotalPrice { get; set; }
-        public DateTime ShippingDate { get; set; }
+
+        [DisplayName("Shipping date")]
+        public string ShippingDate { get; set; }
+
+        [DisplayName("Desk width")]
+        public string Width { get; set; }
+
+        [DisplayName("Desk depth")]
+        public string Depth { get; set; }
+
+        [DisplayName("Number of drawers")]
+        public string Ndrawers { get; set; }
+
+        [DisplayName("Desk material")]
+        public string SurfaceMaterial { get; set; }
+
+        [DisplayName("Date to ship")]
         public int DaysToShip { get; set; }
+
+        [DisplayName("Total Price")]
+        public string TotalPrice { get; set; }
+       
 
         private int[,] rushPricesFromFile;
 
@@ -32,8 +54,8 @@ namespace MegaDesk1
         public DeskQuote CreateQuote(Desk desk)
         {
             Desk = desk;
-            TotalPrice = GetTotalPrice(desk);
-            ShippingDate = DateTime.Now.AddDays(DaysToShip);
+            TotalPrice = GetTotalPrice(desk).ToString();
+            ShippingDate = DateTime.Now.AddDays(DaysToShip).ToString("MMMM dd, yyyy");
             return this;
         }
 
@@ -133,27 +155,6 @@ namespace MegaDesk1
             return 0.00;
         }
 
-        public string GetCustomer()
-        {
-            return Customer;
-        }
-
-        public DateTime GetShippingDate()
-        {
-            return ShippingDate;
-        }
-
-        public string GetQuoteDetails()
-        {
-            return $"Customer: {Customer}\n" +
-                   $"Desk Material: {Desk.Material}\n" +
-                   $"Desk Width: {Desk.Width} inches\n" +
-                   $"Desk Depth: {Desk.Depth} inches\n" +
-                   $"Number of Drawers: {Desk.Drawers}\n" +
-                   $"Total Price: ${TotalPrice}\n" +
-                   $"Shipping Date: {ShippingDate.ToShortDateString()}\n";
-        }
-
         // "static" so that I can use it without instantianting
         static public List<DeskQuote> GetListDeskQuoteFromJson(string filePath) 
         {
@@ -172,21 +173,12 @@ namespace MegaDesk1
             return listDeskQuote;
         }
 
-        public void SaveQuoteToFile(string filePath, DeskQuote quoteDetails)
+        public void SaveQuoteToFile(string jsonPath, DeskQuote quoteDetails)
         {
             try
             {
-                List<DeskQuote> quotes;
 
-                if (File.Exists(filePath))
-                {
-                    string existingJson = File.ReadAllText(filePath);
-                    quotes = JsonConvert.DeserializeObject<List<DeskQuote>>(existingJson) ?? new List<DeskQuote>();
-                }
-                else
-                {
-                    quotes = new List<DeskQuote>();
-                }
+                List<DeskQuote> quotes = DeskQuote.GetListDeskQuoteFromJson(jsonPath);
 
                 quotes.Add(quoteDetails);
 
@@ -196,7 +188,7 @@ namespace MegaDesk1
                     Converters = new List<JsonConverter> { new StringEnumConverter() } // Convert enums to strings
                 });
 
-                File.WriteAllText(filePath, updatedJson);
+                File.WriteAllText(jsonPath, updatedJson);
 
                 MessageBox.Show("Quote saved to JSON file successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }

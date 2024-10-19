@@ -28,6 +28,11 @@ namespace MegaDesk1
         {
             MainMenu mainMenu = (MainMenu)this.Tag;
             dataGridView1.DataSource = mainMenu.listDeskQuote;
+
+            // Don't show a nested dictionary! it won't work
+            this.dataGridView1.Columns["Desk"].Visible = false; 
+        
         }
+
     }
 }

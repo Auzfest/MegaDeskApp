@@ -38,12 +38,12 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 12);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(943, 201);
+            this.dataGridView1.Size = new System.Drawing.Size(850, 201);
             this.dataGridView1.TabIndex = 0;
             // 
             // backToMainMenuButton
             // 
-            this.backToMainMenuButton.Location = new System.Drawing.Point(822, 219);
+            this.backToMainMenuButton.Location = new System.Drawing.Point(729, 219);
             this.backToMainMenuButton.Name = "backToMainMenuButton";
             this.backToMainMenuButton.Size = new System.Drawing.Size(133, 23);
             this.backToMainMenuButton.TabIndex = 1;
@@ -55,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(968, 254);
+            this.ClientSize = new System.Drawing.Size(874, 254);
             this.Controls.Add(this.backToMainMenuButton);
             this.Controls.Add(this.dataGridView1);
             this.Name = "ViewAllQuotes";
