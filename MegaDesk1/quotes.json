@@ -1,0 +1,82 @@
+[
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 3,
+      "Material": "Oak"
+    },
+    "Customer": "ca",
+    "ShippingDate": "October 26, 2024",
+    "Width": "33",
+    "Depth": "44",
+    "Ndrawers": "3",
+    "SurfaceMaterial": "Oak",
+    "DaysToShip": 7,
+    "TotalPrice": "1037"
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 4,
+      "Material": "Pine"
+    },
+    "Customer": "carlos",
+    "ShippingDate": "November 02, 2024",
+    "Width": "33",
+    "Depth": "44",
+    "Ndrawers": "4",
+    "SurfaceMaterial": "Pine",
+    "DaysToShip": 14,
+    "TotalPrice": "902"
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 4,
+      "Material": "Oak"
+    },
+    "Customer": "sara",
+    "ShippingDate": "October 26, 2024",
+    "Width": "33",
+    "Depth": "44",
+    "Ndrawers": "4",
+    "SurfaceMaterial": "Oak",
+    "DaysToShip": 7,
+    "TotalPrice": "1087"
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 5,
+      "Material": "Veneer"
+    },
+    "Customer": "nelbino",
+    "ShippingDate": "October 24, 2024",
+    "Width": "33",
+    "Depth": "44",
+    "Ndrawers": "5",
+    "SurfaceMaterial": "Veneer",
+    "DaysToShip": 5,
+    "TotalPrice": "1077"
+  },
+  {
+    "Desk": {
+      "Width": 33.0,
+      "Depth": 44.0,
+      "Drawers": 2,
+      "Material": "Oak"
+    },
+    "Customer": "carlitos",
+    "ShippingDate": "October 26, 2024",
+    "Width": "33",
+    "Depth": "44",
+    "Ndrawers": "2",
+    "SurfaceMaterial": "Oak",
+    "DaysToShip": 7,
+    "TotalPrice": "987"
+  }
+]

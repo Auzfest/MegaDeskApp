@@ -52,5 +52,15 @@ namespace MegaDesk1
             viewAllQuotes.Show();
             this.Hide();
         }
+
+        private void SearchQuotesButton_Click(object sender, EventArgs e)
+        {
+            this.UpdateListDeskQuote();
+            
+            SearchQuotes searchQuotes = new SearchQuotes();
+            searchQuotes.Tag = this;
+            searchQuotes.Show();
+            this.Hide();
+        }
     }
 }
