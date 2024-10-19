@@ -17,5 +17,11 @@ namespace MegaDesk1
             InitializeComponent();
         }
 
+        private void backToMainMenuButton_Click(object sender, EventArgs e)
+        {
+            MainMenu mainMenu = (MainMenu)this.Tag;
+            mainMenu.Show();
+            this.Close();
+        }
     }
 }
