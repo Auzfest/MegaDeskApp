@@ -35,7 +35,8 @@ namespace MegaDesk1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "quotes.json");
+
+            string filePath = @"..\..\quotes.json";
             if (filePath != null){
                 Quote.SaveQuoteToFile(filePath, Quote);
             }
